@@ -30,9 +30,23 @@
   [asym-body-parts]
   (loop [remaining-asym-parts asym-body-parts
          final-body-parts []]
+    ; remaining-asym-parts bound to asym-body-parts
+    ; final-body-parts initially bound to empty vector
     (if (empty? remaining-asym-parts)
+      ; then return final-body-parts as is
       final-body-parts
+      ; recur, using let to split head from tail
       (let [[part & remaining] remaining-asym-parts]
         (recur remaining
                (into final-body-parts
                      (set [part (matching-part part)])))))))
+
+(defn symmetrize-body-parts-by-reduce
+  "Expects a seq of maps that have a :name and :size"
+  [asym-body-parts]
+  (reduce (fn
+            [final-body-parts part]
+            (into final-body-parts (set [part (matching-part part)])))
+          []
+          asym-body-parts))
+

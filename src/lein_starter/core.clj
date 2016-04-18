@@ -65,3 +65,8 @@
   "more concise form for anonymous function - made possible by reader macro"
   [operand]
   (#(* % 3) operand))
+
+(defn mapset
+  "perform a map and return a set from the result"
+  [function seq]
+  (set (map function seq)))
