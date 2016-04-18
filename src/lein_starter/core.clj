@@ -55,3 +55,13 @@
   (str "lattitude: " lat "\n"
        "longitude: " lng "\n"
        "all: " treasure-location))
+
+(defn anon-fn
+  "fn form for anonymous function"
+  []
+  (map (fn [name ] (str "Hi, " name) ) ["Darth Vader" "Scooby Doo"]))
+
+(defn times-three
+  "more concise form for anonymous function - made possible by reader macro"
+  [operand]
+  (#(* % 3) operand))

@@ -46,3 +46,19 @@
   (testing "treasure-coordinates"
     (is (= (treasure-coordinates {:lat 1 :lng 2})
            "lattitude: 1\nlongitude: 2\nall: {:lat 1, :lng 2}"))))
+
+(deftest divide-by-zero
+  (testing "ArithmeticException when divide by zero"
+    (is (thrown? ArithmeticException (/ 1 0)))))
+
+(deftest anon-fn-test
+  (testing "anon-fn"
+    (is (= (anon-fn) ["Hi, Darth Vader" "Hi, Scooby Doo"]))))
+
+(deftest times-three-test
+  (testing "times-three"
+    (is (= (times-three 8) 24))))
+
+(deftest maps
+  (testing "fetching values"
+    (is (= (:name {:name "Franco" :rank "Admiral"}) "Franco"))))
