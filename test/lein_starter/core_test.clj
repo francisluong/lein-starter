@@ -96,7 +96,7 @@
 (deftest indentity-test
   (testing "identity"
     (testing "on a symbol"
-      (is (= (identity :a)) :a))
+      (is (= (identity :a) :a)))
     (testing "on a string"
       (is (= (identity "bob") "bob")))))
 
@@ -152,4 +152,4 @@
 
 (deftest mapset-test
   (testing "basic mapset"
-    (is (= (mapset inc [1 1 1 2 2 2 3 3 3]) [2 3 4]))))
+    (is (= (mapset inc [1 1 1 2 2 2 3 3 3]) #{4 3 2}))))
