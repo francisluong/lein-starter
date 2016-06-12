@@ -25,3 +25,6 @@
   (reduce (fn [acc-map [key val]]
             (assoc acc-map key (function val))) {} map-input))
 
+(defn titleize
+  [topic]
+  (str topic " for the Brave and True"))

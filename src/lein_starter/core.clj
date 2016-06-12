@@ -19,9 +19,9 @@
 ;(0 or 1)-arity
 (defn weird-arity
   ([]
-    "Destiny dressed you this morning,...")
+   "Destiny dressed you this morning,...")
   ([number]
-    (inc number)))
+   (inc number)))
 
 (defn offmylawn
   [name]
@@ -70,3 +70,5 @@
   "perform a map and return a set from the result"
   [function seq]
   (set (map function seq)))
+
+(def x 1)

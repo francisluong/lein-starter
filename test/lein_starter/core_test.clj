@@ -65,22 +65,22 @@
 
 (deftest let-test
   (testing "let basics and scoping"
-     (def x 3)
+     (def xx 3)
      (def y 2)
-     (is (= x 3))
+     (is (= xx 3))
      ; in the context of let, x will represent the value: 4
-     (let [x 4]
-       (is (= x 4))
+     (let [xx 4]
+       (is (= xx 4))
        ; y is available thanks to lexical scope
        (is (= y 2)))
      ; ...and then returns to its previous value after we exit the context
-     (is (= x 3)))
+     (is (= xx 3)))
   (testing "remainder variables"
     (def dalmatian-list ["Pongo" "Perdita" "Puppy 1" "Puppy 2"])
     (let [[first & others] dalmatian-list]
       (is (= first "Pongo"))
-      (is (= others ["Perdita" "Puppy 1" "Puppy 2"])))
-    ))
+      (is (= others ["Perdita" "Puppy 1" "Puppy 2"])))))
+
 
 (deftest into-test
   ; into is used because many functions that operate on a collection return a seq
