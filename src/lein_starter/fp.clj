@@ -33,3 +33,14 @@
   (Thread/sleep 1000)
   x)
 (def memo-sleepy-identity (memoize sleepy-identity))
+
+(defmacro defattrs
+  "In Chapter 5 you created a series of functions (c-int, c-str, c-dex)
+  to read an RPG character’s attributes. Write a macro that defines an
+  arbitrary number of attribute-retrieving functions using one macro call."
+  ([] [])
+  ([fname attrib & remain]
+   (conj [] `(def ~fname (comp ~attrib :attributes))))) ; todo: how to recurse
+  ;  (def c-int (comp :intelligence :attributes))
+  ;  (def c-str (comp :strength :attributes))
+  ;  (def c-dex (comp :dexterity :attributes))

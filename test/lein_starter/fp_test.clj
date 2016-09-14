@@ -72,3 +72,18 @@
   (testing "memo-sleepy-identity"
     (ftime (memo-sleepy-identity 9)) ;; skip the first check
     (is (> 1 (:time (ftime (memo-sleepy-identity 9))))))) ;; subsequent should skip sleep
+
+
+(deftest defattrs-test
+  (testing "defattrs"
+    (print "\n--=\n")
+    (print (macroexpand `(defattrs f-int :intelligence
+                                  f-str :strength
+                                  f-dex :dexterity)))
+    (print "\n=--\n")
+    (defattrs f-int :intelligence
+              f-str :strength
+              f-dex :dexterity)))
+    ; (is (= 10 (f-int character)))
+    ; (is (= 4 (f-str character)))
+    ; (is (= 5 (f-dex character)))))
