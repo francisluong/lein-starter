@@ -40,7 +40,8 @@
   arbitrary number of attribute-retrieving functions using one macro call."
   ([] [])
   ([fname attrib & remain]
-   (conj [] `(def ~fname (comp ~attrib :attributes))))) ; todo: how to recurse
+   (conj (macroexpand `(defattrs ~@remain))
+         `(def ~fname (comp ~attrib :attributes))))) ; todo: how to recurse
   ;  (def c-int (comp :intelligence :attributes))
   ;  (def c-str (comp :strength :attributes))
   ;  (def c-dex (comp :dexterity :attributes))

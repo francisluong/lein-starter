@@ -83,7 +83,7 @@
     (print "\n=--\n")
     (defattrs f-int :intelligence
               f-str :strength
-              f-dex :dexterity)))
-    ; (is (= 10 (f-int character)))
-    ; (is (= 4 (f-str character)))
-    ; (is (= 5 (f-dex character)))))
+              f-dex :dexterity)
+    (is (= 10 (f-int character)))
+    (is (= 4 (f-str character)))
+    (is (= 5 (f-dex character)))))
