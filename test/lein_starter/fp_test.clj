@@ -81,9 +81,36 @@
                                   f-str :strength
                                   f-dex :dexterity)))
     (print "\n=--\n")
+    (is (= nil (resolve 'f-int)))
+    (is (= nil (resolve 'f-dex)))
+    (is (= nil (resolve 'f-str)))
     (defattrs f-int :intelligence
               f-str :strength
               f-dex :dexterity)
     (is (= 10 (f-int character)))
     (is (= 4 (f-str character)))
-    (is (= 5 (f-dex character)))))
+    (is (= 5 (f-dex character))))
+  (testing "defattrs with 2 pair of inputs"
+      (is (= nil (resolve 'k-int)))
+      (is (= nil (resolve 'k-dex)))
+      (defattrs k-int :intelligence
+                k-dex :dexterity)
+      (is (= 10 (k-int character)))
+      (is (= 5 (k-dex character))))
+  (testing "defattrs with 1 pair of inputs"
+      (is (= nil (resolve 'j-int)))
+      (defattrs j-int :intelligence)
+      (is (= 10 (j-int character))))
+  (testing "defattrs with 4 pair of inputs"
+      (is (= nil (resolve 'l-int)))
+      (is (= nil (resolve 'l-dex)))
+      (is (= nil (resolve 'l-str)))
+      (is (= nil (resolve 'z-str)))
+      (defattrs l-int :intelligence
+                l-str :strength
+                l-dex :dexterity
+                z-str :strength)
+      (is (= 10 (l-int character)))
+      (is (= 4 (l-str character)))
+      (is (= 4 (z-str character)))
+      (is (= 5 (l-dex character)))))
